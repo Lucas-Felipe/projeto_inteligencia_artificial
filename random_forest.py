@@ -73,10 +73,10 @@ print(f"R²: {r2}")
 
 
 # Codificar variáveis categóricas (strings) em números
-# X = pd.get_dummies(X, drop_first=True)
+X = pd.get_dummies(X, drop_first=True)
 
 # Dividir os dados em conjuntos de treinamento e teste
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Definir a grade de hiperparâmetros a serem testados
 param_grid = {
