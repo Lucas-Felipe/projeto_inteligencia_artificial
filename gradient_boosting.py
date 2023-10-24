@@ -62,6 +62,22 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Criar o modelo de Gradient Boosting Regressor
 model = GradientBoostingRegressor(random_state=42)
 
+# Dividir os dados em conjuntos de treinamento e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Treinar o modelo com os dados de treinamento
+model.fit(X_train, y_train)
+
+# Fazer previsões
+y_pred = model.predict(X_test)
+
+# Avaliar o modelo
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+r2 = r2_score(y_test, y_pred)
+
+print(f"RMSE sem ajuste de hiperparâmetros: {rmse}")
+print(f"R² sem ajuste de hiperparâmetros: {r2}")
+
 # Definir os hiperparâmetros a serem ajustados
 param_grid = {
     'n_estimators': [100, 200, 300],
